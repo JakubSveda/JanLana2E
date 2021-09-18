@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author 2020-e-sveda
  */
 public class Ctverec {
-    private static final Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Velikost strany:");
@@ -23,7 +23,7 @@ public class Ctverec {
                 for (int j = 0; j < squareSize; j++) {
                     System.out.print("#");
                 }
-                System.out.println("");
+                System.out.println();
             } else {
                 for (int j = 0; j < squareSize; j++) {
                     if (j == 0 || j == (squareSize - 1)) {
@@ -32,12 +32,8 @@ public class Ctverec {
                         System.out.print(" ");
                     }
                 }
-                System.out.println("");
+                System.out.println();
             }
         }
-        
-        System.out.println("\n");
-        
-        
     }
 }
