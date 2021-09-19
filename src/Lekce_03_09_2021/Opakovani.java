@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Opakovani {
 
-    private static final Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
     private static String input;
     private static ArrayList<Integer> numbers = new ArrayList<>();
 

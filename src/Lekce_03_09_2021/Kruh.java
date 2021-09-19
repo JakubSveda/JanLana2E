@@ -7,10 +7,10 @@ public class Kruh {
 
     public static void main(String[] args) {
         System.out.println("Circle radius:");
-        int circleRadious = scan.nextInt();
+        int circleRadius = scan.nextInt();
 
-        if (circleRadious % 2 != 0) {
-            for (int i = 0; i < circleRadious; i++) {
+        if (circleRadius % 2 != 0) {
+            for (int i = 0; i < circleRadius; i++) {
                 // nothing yet
             }
         } else {
