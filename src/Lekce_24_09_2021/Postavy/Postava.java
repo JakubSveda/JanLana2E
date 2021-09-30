@@ -21,7 +21,7 @@ public class Postava {
         postava.energie -= magie;
     }
 
-    public abstract int getTelesnaSila();
-    public abstract int getMagickaSila();
+    //public abstract int getTelesnaSila();
+    //public abstract int getMagickaSila();
 
 }

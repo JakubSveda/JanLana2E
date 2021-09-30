@@ -1,11 +1,15 @@
 package Ukoly.Auticka;
 
-public class Auto {
-    private int maxRychlost, aktualniRychlost;
-
-    public Auto(int maxRychlost) {
-        this.maxRychlost = maxRychlost;
-    }
+public abstract class Auto {
+    /*
+     Lepší by bylo vytvořit getter proměnné maxRychlost a vynechat abstraktní metodu mojeMaxRychlost(),
+     když ji potom deklarujeme u každého modelu auta.
+     Chápu však, že úkol měl být na trénink abstraktních metod...
+     */
+    protected int maxRychlost;
+    private int aktualniRychlost = 0;
+    
+    public Auto(int maxRychlost) { this.maxRychlost = maxRychlost; }
 
     public void pridejRychlost() {
         if (aktualniRychlost + 5 > maxRychlost) aktualniRychlost = maxRychlost;
@@ -17,8 +21,6 @@ public class Auto {
         else aktualniRychlost -= 7;
     }
 
-    public String toString() {
-        System.out.println(aktualniRychlost);
-        return aktualniRychlost + "";
-    }
+    public void vypisAktualniRychlost() { System.out.println(aktualniRychlost); }
+    public abstract int mojeMaxRychlost();
 }
