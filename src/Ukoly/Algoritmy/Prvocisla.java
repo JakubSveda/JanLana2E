@@ -26,6 +26,10 @@ public class Prvocisla {
         for (int number: getPrvociselnyRozklad(in)) {
             System.out.print(" " + number + " ");
         }
+
+        System.out.println();
+        int input = 2200;
+        System.out.println("Prvocinitele " + input + ": " + pocetPrvocinitelu(input));
     }
 
     private static int getNejvetsiSpolecnyDelitel(int a, int b) {
@@ -91,5 +95,20 @@ public class Prvocisla {
         }
 
         return list;
+    }
+
+    private static int pocetPrvocinitelu(int vstup) {
+        int posledni = 0;
+        int pocitadlo = 2;
+        int pocetPrvocinitelu = 0;
+        while (vstup > 1) {
+            if (vstup % pocitadlo == 0) {
+                if (posledni != pocitadlo) pocetPrvocinitelu++;
+                vstup /= pocitadlo;
+                posledni = pocitadlo;
+            } else {
+                pocitadlo++;
+            }
+        }
     }
 }
