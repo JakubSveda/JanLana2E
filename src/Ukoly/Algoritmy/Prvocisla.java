@@ -110,5 +110,6 @@ public class Prvocisla {
                 pocitadlo++;
             }
         }
+        return pocetPrvocinitelu;
     }
 }
