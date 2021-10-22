@@ -1,10 +1,13 @@
 package Ukoly.Algoritmy;
 
+import java.util.Arrays;
+
 public class ZpracovaniDatVPoli  {
     public static void main(String[] args) {
         System.out.println(vyhodnotPolynom(2, new int[]{40, -11, 1}) + "\n");
         System.out.println(indexOf(1, new int[]{2, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
         System.out.println(indexOfLepe(1, new int[]{1, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
+        System.out.println(indexOfBinarniVyhledavani(4, new int[]{1, 2, 5, 7, 9, 56, 2, 4, 9, 5}) + "\n");
     }
 
     private static double vyhodnotPolynom(int vstupniCisloPolynomu, int[] koeficientyPodleMocnin) {
@@ -48,5 +51,23 @@ public class ZpracovaniDatVPoli  {
         }
 
         return i;
+    }
+
+    private static int indexOfBinarniVyhledavani(int hledaneCislo, int[] poleProHledani) {
+        Arrays.sort(poleProHledani);
+
+        int leveUkazovatko = 0;
+        int praveUkazovatko = poleProHledani.length - 1;
+        int stredPole = (leveUkazovatko + praveUkazovatko) / 2;
+        while(leveUkazovatko < praveUkazovatko && poleProHledani[stredPole] != hledaneCislo) {
+            if (hledaneCislo < poleProHledani[stredPole])
+                praveUkazovatko = stredPole - 1;
+            else
+                leveUkazovatko = stredPole + 1;
+
+            stredPole = (leveUkazovatko + praveUkazovatko) / 2;
+        }
+
+        return stredPole;
     }
 }
