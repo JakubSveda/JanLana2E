@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class VolebniKalkulacka {
-    private static int[][] arr = new int[22][14];
+    private static final int[][] stranaNaKraj = new int[22][14];
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/Lekce_2021_10_15/volby2021.txt"));
@@ -18,12 +18,12 @@ public class VolebniKalkulacka {
             System.out.print(jmeno + " ");
 
             for (int j = 0; j < 14; j++) {
-                arr[i][j] = sc.nextInt();
+                stranaNaKraj[i][j] = sc.nextInt();
             }
         }
 
         System.out.println();
-        for (int[] radek: arr) {
+        for (int[] radek : stranaNaKraj) {
             System.out.println(Arrays.toString(radek));
         }
 
@@ -31,7 +31,7 @@ public class VolebniKalkulacka {
         System.out.println("\n" + mandatoveCislo());
 
         System.out.println();
-        for (int poslanecNaKraj: pocetPoslancu()) {
+        for (int poslanecNaKraj : pocetPoslancu()) {
             System.out.print(poslanecNaKraj + " ");
         }
 
@@ -47,18 +47,15 @@ public class VolebniKalkulacka {
     }
 
     private static int volebniUcast() {
-        if (arr != null) {
-            int soucet = 0;
+        int soucet = 0;
 
-            for (int[] radek: arr) {
-                for (int hlasyNaKraj: radek) {
-                    soucet += hlasyNaKraj;
-                }
+        for (int[] radek : stranaNaKraj) {
+            for (int hlasyNaKraj : radek) {
+                soucet += hlasyNaKraj;
             }
+        }
 
-            return soucet;
-        } else
-            return 0;
+        return soucet;
     }
 
     private static int mandatoveCislo() {
@@ -69,7 +66,7 @@ public class VolebniKalkulacka {
         int[] poslanciNaKraj = new int[14];
         Arrays.fill(poslanciNaKraj, 0);
 
-        for (int[] radek : arr) {
+        for (int[] radek : stranaNaKraj) {
             for (int i = 0; i < radek.length; i++) {
                 poslanciNaKraj[i] += radek[i];
             }
@@ -87,9 +84,9 @@ public class VolebniKalkulacka {
         ArrayList<int[]> list = new ArrayList<>();
         int minimumProcent = volebniUcast() / 20;
 
-        for (int[] radek: arr) {
+        for (int[] radek : stranaNaKraj) {
             int soucet = 0;
-            for (int hlasyNaKraj: radek) {
+            for (int hlasyNaKraj : radek) {
                 soucet += hlasyNaKraj;
             }
 
@@ -109,9 +106,9 @@ public class VolebniKalkulacka {
         ArrayList<int[]> list = new ArrayList<>();
         int minimumProcent = volebniUcast() / 20;
 
-        for (int[] radek: arr) {
+        for (int[] radek : stranaNaKraj) {
             int soucet = 0;
-            for (int hlasyNaKraj: radek) {
+            for (int hlasyNaKraj : radek) {
                 soucet += hlasyNaKraj;
             }
 

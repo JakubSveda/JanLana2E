@@ -54,5 +54,7 @@ public class Clovek {
         return poleClovek;
     }
 
-    private static Clovek[] setridPodleKrestnihoJmena(Clovek[] poleClovek) {
+    private static Clovek[] setridPodlePrijmeni(Clovek[] poleClovek) {
+        return poleClovek;
+    }
 }

@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 public class ZpracovaniDatVPoli  {
     public static void main(String[] args) {
-        System.out.println(vyhodnotPolynom(2, new int[]{40, -11, 1}) + "\n");
-        System.out.println(indexOf(1, new int[]{2, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
-        System.out.println(indexOfLepe(1, new int[]{1, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
-        System.out.println(indexOfBinarniVyhledavani(4, new int[]{1, 2, 5, 7, 9, 56, 2, 4, 9, 5}) + "\n");
+        //System.out.println(vyhodnotPolynom(2, new int[]{40, -11, 1}) + "\n");
+        //System.out.println(indexOf(1, new int[]{2, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
+        //System.out.println(indexOfLepe(1, new int[]{1, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
+        //System.out.println(indexOfBinarniVyhledavani(4, new int[]{1, 2, 5, 7, 9, 56, 2, 4, 9, 5}) + "\n");
+        //System.out.println(Arrays.toString(moveIndexByOneForward(new int[]{1, 2, 3, 4, 5})));
+        System.out.println(Arrays.toString(moveIndexByOneBackwards(new int[]{1, 2, 3, 4, 5})));
     }
 
     private static double vyhodnotPolynom(int vstupniCisloPolynomu, int[] koeficientyPodleMocnin) {
@@ -69,5 +71,27 @@ public class ZpracovaniDatVPoli  {
         }
 
         return stredPole;
+    }
+
+    private static int[] moveIndexByOneForward(int[] arr) {
+        int last = arr[arr.length - 1];
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+            arr[i + 1] = arr[i];
+        }
+
+        arr[0] = last;
+        return arr;
+    }
+
+    private static int[] moveIndexByOneBackwards(int [] arr) {
+        int first = arr[0];
+
+        for (int i = 0; i <= (arr.length - 2); i++) {
+            arr[i] = arr[i + 1];
+        }
+
+        arr[arr.length - 1] = first;
+        return arr;
     }
 }
