@@ -9,7 +9,8 @@ public class ZpracovaniDatVPoli  {
         //System.out.println(indexOfLepe(1, new int[]{1, 3, 4, 5, 6, 8, 1, 2, 3}) + "\n");
         //System.out.println(indexOfBinarniVyhledavani(4, new int[]{1, 2, 5, 7, 9, 56, 2, 4, 9, 5}) + "\n");
         //System.out.println(Arrays.toString(moveIndexByOneForward(new int[]{1, 2, 3, 4, 5})));
-        System.out.println(Arrays.toString(moveIndexByOneBackwards(new int[]{1, 2, 3, 4, 5})));
+        //System.out.println(Arrays.toString(moveIndexByOneBackwards(new int[]{1, 2, 3, 4, 5})));
+        System.out.println(Arrays.toString(moveIndexTwo(new int[]{1, 2, 3, 4, 5})));
     }
 
     private static double vyhodnotPolynom(int vstupniCisloPolynomu, int[] koeficientyPodleMocnin) {
@@ -92,6 +93,20 @@ public class ZpracovaniDatVPoli  {
         }
 
         arr[arr.length - 1] = first;
+        return arr;
+    }
+
+    private static int[] moveIndexTwo(int[] arr){
+        int last = arr[arr.length - 1];
+        int last2 = arr[arr.length - 2];
+
+        for (int i = 0; i <= (arr.length - 3); i++) {
+            arr[i] = arr[i + 1];
+        }
+
+        arr[0] = last2;
+        arr[1] = last;
+
         return arr;
     }
 }
