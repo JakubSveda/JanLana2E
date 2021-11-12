@@ -1,8 +1,9 @@
 package Lekce_2021_10_22;
 
+import java.io.Serializable;
 import java.text.Collator;
 
-public class Clovek implements Comparable {
+public class Clovek implements Comparable, Serializable {
     String krestniJmeno;
     String prijmeni;
     int vek;
