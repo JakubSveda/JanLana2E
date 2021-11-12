@@ -1,4 +1,4 @@
-package Lekce_2021_10_22;
+package Ukoly.Clovek;
 
 import java.text.Collator;
 
@@ -22,6 +22,7 @@ public class Clovek implements Comparable {
                 '}';
     }
 
+    /*
     public static void main(String[] args) {
         Clovek c1 = new Clovek("Jakub", "Švéda", 16);
         Clovek c2 = new Clovek("Jan", "Cihla", 10);
@@ -48,6 +49,7 @@ public class Clovek implements Comparable {
         printArr(zaci);
 
     }
+     */
 
     private static Clovek[] setridPodleKrestnihoJmena(Clovek[] poleClovek) {
         Collator col = Collator.getInstance();
