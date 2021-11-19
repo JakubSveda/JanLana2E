@@ -1,7 +1,5 @@
 package Ukoly.Algoritmy;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class Kalendar {
@@ -35,7 +33,7 @@ public class Kalendar {
         return datum;
     }
 
-    private static int pocetDniMezi(int @NotNull [] datum1, int @NotNull [] datum2) {
+    private static int pocetDniMezi(int [] datum1, int [] datum2) {
         if (isPrestupny(datum1[2])) mesice[2] = 29;
         int counter = 0;
         while (!Arrays.equals(datum1, datum2)) {
