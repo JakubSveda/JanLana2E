@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_301" class="java.beans.XMLDecoder">
+ <object class="Lekce_2021_11_19.Auto">
+  <void property="RZ">
+   <string>5AL 5055</string>
+  </void>
+ </object>
+</java>
