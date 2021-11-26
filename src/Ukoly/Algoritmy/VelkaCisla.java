@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class VelkaCisla {
     public static void main(String[] args) {
-        // x = 54 + 116
-        int[] soucet = scitani(new int[] {4, 5}, new int[] {6, 1, 1});
+        // x = 54 + 1116
+        int[] soucet = scitani(new int[] {4, 5}, new int[] {6, 1, 1, 1});
         for (int j : soucet) {
             System.out.print(j);
         }
@@ -32,7 +32,7 @@ public class VelkaCisla {
         }
 
         if (firstCifry != secondCifry) {
-            for (int i = min - 1; i < Math.max(firstCifry, secondCifry); i++) {
+            for (int i = min - 1; i < Math.max(firstCifry, secondCifry) - 1; i++) {
                 result[i] += (firstCifry > secondCifry) ? firstNumbers[i] : secondNumbers[i];
             }
         }

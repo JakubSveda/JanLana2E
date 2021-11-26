@@ -10,11 +10,12 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/gson-2.8.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../Libraries/gson-2.8.9.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="apache.commons.email" level="project" />
   </component>
 </module>

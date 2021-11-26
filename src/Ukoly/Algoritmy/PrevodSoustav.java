@@ -60,4 +60,14 @@ public class PrevodSoustav {
 
         return out;
     }
+
+    private static String binToHex(String bin) {
+        int intValue = binToInt(bin);
+        return intToHex(intValue);
+    }
+
+    private static String hexToBin(String hex) {
+        int intValue = hexToInt(hex);
+        return intToBin(intValue);
+    }
 }
