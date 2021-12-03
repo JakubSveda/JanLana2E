@@ -19,4 +19,5 @@ public class NahodneCislo {
     public double getHodnota() {
         return hodnota;
     }
+
 }

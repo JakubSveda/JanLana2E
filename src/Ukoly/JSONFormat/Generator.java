@@ -17,4 +17,5 @@ public class Generator {
     private static int findNewRozsah() throws FileNotFoundException {
         return (Ctenar.readNahodneCislo() == null) ? 10 : Ctenar.readNahodneCislo().getRozsah() + 10;
     }
+
 }
