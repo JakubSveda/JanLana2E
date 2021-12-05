@@ -9,6 +9,6 @@ import java.io.FileOutputStream;
 
 public class Opakovani {
     public static void main(String[] args) throws FileNotFoundException {
-        CteniObjektu.
+
     }
 }
