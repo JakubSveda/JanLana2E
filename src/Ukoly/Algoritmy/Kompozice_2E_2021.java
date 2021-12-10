@@ -54,7 +54,8 @@ public class Kompozice_2E_2021 {
         //System.out.println(Arrays.toString(insertSort(new int[]{0, 3, 2, 8, 8, 9, 0, 60, 28, 9, 10, 11, 12})));
         //System.out.println(Arrays.toString(bubbleSort(new int[]{0, 3, 2, 8, 8, 9, 0, 60, 28, 9, 10, 11, 12})));
         //System.out.println(soucetPrvkuMatice(new int[][] {{1, 2, 3}, {2, 4, 6}}));
-        System.out.println(soucetPrvkuPodHlavniDiagonalouMatice(new int[][] {{1, 2, 3}, {2, 4, 6}}));
+        //System.out.println(soucetPrvkuPodHlavniDiagonalouMatice(new int[][] {{1, 2, 3}, {2, 4, 6}}));
+        //System.out.println(Arrays.toString(getZitra(31, 12, 2000)));
     }
 
     /*
@@ -793,6 +794,12 @@ public class Kompozice_2E_2021 {
         return arr;
     }
 
+    /**
+     * Pocet ruznych prvku pole int.
+     *
+     * @param arr the arr
+     * @return the int
+     */
     public static int pocetRuznychPrvkuPole(Integer[] arr) {
         int ruzneHodnoty = 0;
         int vyskrtavac;
@@ -809,6 +816,12 @@ public class Kompozice_2E_2021 {
         return ruzneHodnoty;
     }
 
+    /**
+     * Select sort int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
     public static int[] selectSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int min = arr[i];
@@ -824,6 +837,12 @@ public class Kompozice_2E_2021 {
         return arr;
     }
 
+    /**
+     * Insert sort int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
     public static int[] insertSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int nynejsiCislo = arr[i];
@@ -841,6 +860,12 @@ public class Kompozice_2E_2021 {
         return arr;
     }
 
+    /**
+     * Bubble sort int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
     public static int[] bubbleSort(int[] arr) {
         boolean zmena = true;
         while (zmena) {
@@ -860,6 +885,12 @@ public class Kompozice_2E_2021 {
         return arr;
     }
 
+    /**
+     * Soucet prvku matice int.
+     *
+     * @param arr the arr
+     * @return the int
+     */
     public static int soucetPrvkuMatice(int[][] arr) {
         int vysledek = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -871,6 +902,12 @@ public class Kompozice_2E_2021 {
         return vysledek;
     }
 
+    /**
+     * Soucet prvku pod hlavni diagonalou matice int.
+     *
+     * @param arr the arr
+     * @return the int
+     */
     public static int soucetPrvkuPodHlavniDiagonalouMatice(int[][] arr) {
         int vysledek = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -880,5 +917,56 @@ public class Kompozice_2E_2021 {
         }
 
         return vysledek;
+    }
+
+    /**
+     * Transpozice matice int [ ] [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ] [ ]
+     */
+    public static int[][] transpoziceMatice(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j <= i; j++) {
+                int vymena = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = vymena;
+            }
+        }
+
+        return arr;
+    }
+
+    /**
+     * Is prestupny boolean.
+     *
+     * @param rok the rok
+     * @return the boolean
+     */
+    public static boolean isPrestupny(int rok) {
+        if (rok % 100 == 0) return (rok % 400 == 0);
+        else return rok % 4 == 0;
+    }
+
+    /**
+     * Get zitra int [ ].
+     *
+     * @param den   the den
+     * @param mesic the mesic
+     * @param rok   the rok
+     * @return the int [ ]
+     */
+    public static int[] getZitra(int den, int mesic, int rok) {
+        int[] mesice = {0, 31, (isPrestupny(rok)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        if (den < mesice[mesic]) {
+            return new int[] {den + 1, mesic, rok};
+        } else {
+            if (mesic == 12) {
+                return new int[] {1, 1, rok + 1};
+            } else {
+                return new int[] {1, mesic + 1, rok};
+            }
+        }
     }
 }

@@ -22,11 +22,12 @@ public class Bezec extends Thread {
 
     @Override
     public void run() {
-        long casZaKilometr = (long) Math.floor(1 / rychlostKilometryZaSekundu);
+        double rychlostKilometruZaMinutu = (1 / (rychlostKilometryZaSekundu * 60));
+        long rychlostProgramu = (long) (rychlostKilometruZaMinutu * 1000);
 
         for (int i = 1; i <= 4; i++) {
             try {
-                Thread.sleep(casZaKilometr);
+                Thread.sleep(rychlostProgramu);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -34,19 +35,11 @@ public class Bezec extends Thread {
         }
 
         try {
-            Thread.sleep(casZaKilometr);
+            Thread.sleep(rychlostProgramu);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Bezec " + this.jmeno + " je v cíli s casem " + convertFromSecondsToStandardTimeString((5 * casZaKilometr)));
-    }
-
-    private String convertFromSecondsToStandardTimeString(long seconds) {
-        int hour = (int) (seconds % 3600);
-        seconds /= 3600;
-        int minutes = (int) (seconds % 60);
-        seconds /= 60;
-        return (hour + "h " + minutes + "min " + seconds + "s");
+        System.out.println("Bezec " + this.jmeno + " je v cíli s casem " + ((int) Math.floor(5 * rychlostKilometruZaMinutu)));
     }
 
     private static void zavod() {
@@ -60,12 +53,9 @@ public class Bezec extends Thread {
         }
     }
 
-
     public static void main(String[] args) {
         zavod();
     }
-
-
 
     static class ChybnaRychlostBezceException extends Exception {
         public ChybnaRychlostBezceException(String message) {
