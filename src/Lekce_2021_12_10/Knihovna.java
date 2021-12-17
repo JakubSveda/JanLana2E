@@ -2,7 +2,7 @@ package Lekce_2021_12_10;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Knihovna {
@@ -10,13 +10,13 @@ public class Knihovna {
 
     public static void main(String[] args) {
         String pozadavek = sc.next();
-        if (pozadavek == "add") {
+        if (Objects.equals(pozadavek, "add")) {
             add();
-        } else if (pozadavek == "list") {
+        } else if (Objects.equals(pozadavek, "list")) {
             readKnihyKnihovny();
-        } else if (pozadavek == "list-author") {
+        } else if (Objects.equals(pozadavek, "list-author")) {
             readKnihyPodleAutora();
-        } else if (pozadavek == "delete") {
+        } else if (Objects.equals(pozadavek, "delete")) {
             deleteKnihaPodleNazvu();
         }
     }
@@ -28,7 +28,9 @@ public class Knihovna {
         }
 
         ArrayList<String> knihovna = readObject();
-        knihovna.add(input);
+        if (knihovna != null) {
+            knihovna.add(input);
+        }
 
         writeObject(knihovna);
     }
@@ -62,23 +64,25 @@ public class Knihovna {
     private static void readKnihyPodleAutora() {
         ArrayList<String> knihovna = readObject();
 
-        // pokud by knihy měli autora se stejným příjmením, nemusí určit správně jejich pořadí (nestihl jsem dodělat)
-        for (int i = 0; i < knihovna.size(); i++) {
-            String[] split = knihovna.get(i).split(" ");
-            String min = split[split.length - 2];
-            for (int j = i; j < knihovna.size(); j++) {
-                String[] split2 = knihovna.get(j).split(" ");
-                String thisPrijmeni = split2[split.length - 2];
-                if ( thisPrijmeni.compareTo(min) > 0) {
-                    String vymena = knihovna.get(i);
-                    knihovna.set(i, knihovna.get(j));
-                    knihovna.set(j, vymena);
+        if (knihovna != null) {
+            // pokud by knihy měli autora se stejným příjmením, nemusí určit správně jejich pořadí (nestihl jsem dodělat)
+            for (int i = 0; i < knihovna.size(); i++) {
+                String[] split = knihovna.get(i).split(" ");
+                String min = split[split.length - 2];
+                for (int j = i; j < knihovna.size(); j++) {
+                    String[] split2 = knihovna.get(j).split(" ");
+                    String thisPrijmeni = split2[split.length - 2];
+                    if (thisPrijmeni.compareTo(min) > 0) {
+                        String vymena = knihovna.get(i);
+                        knihovna.set(i, knihovna.get(j));
+                        knihovna.set(j, vymena);
+                    }
                 }
             }
-        }
 
-        for (String s: knihovna) {
-            System.out.println(s);
+            for (String s : knihovna) {
+                System.out.println(s);
+            }
         }
     }
 
@@ -104,8 +108,7 @@ public class Knihovna {
         try {
             fis = new FileInputStream("knihovna.dat");
             ois = new ObjectInputStream(fis);
-            ArrayList<String> knihovna = (ArrayList<String>) ois.readObject();
-            return knihovna;
+            return (ArrayList<String>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
