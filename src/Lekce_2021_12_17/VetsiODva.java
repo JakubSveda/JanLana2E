@@ -9,6 +9,7 @@ public class VetsiODva {
         Zvetsovac z2 = new Zvetsovac(v);
         z.start();
         z2.start();
+
         z.join();
         z2.join();
 
