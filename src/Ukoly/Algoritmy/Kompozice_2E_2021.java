@@ -1,7 +1,5 @@
 package Ukoly.Algoritmy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -246,7 +244,7 @@ public class Kompozice_2E_2021 {
     public static int pocetCifer(int x) {
         if (x == 0) return 1;
         int pocetCifer = 0;
-        while(x != 0) {
+        while (x != 0) {
             x /= 10;
             pocetCifer++;
         }
@@ -287,9 +285,9 @@ public class Kompozice_2E_2021 {
      * @return the string
      */
     public static String covertTimeFromSec(int sec) {
-        int h = sec/3600;
+        int h = sec / 3600;
         sec %= 3600;
-        int min = sec/60;
+        int min = sec / 60;
         sec %= 60;
         return ("h: " + h + " -- min: " + min + " -- sec: " + sec);
     }
@@ -301,7 +299,7 @@ public class Kompozice_2E_2021 {
      * @return the string
      */
     public static String covertTimeFromMinutes(int min) {
-        int h = min/60;
+        int h = min / 60;
         min %= 60;
         return ("h: " + h + " -- min: " + min + " -- sec: 0");
     }
@@ -324,7 +322,7 @@ public class Kompozice_2E_2021 {
      * @return the int
      */
     public static int nejvetsiSpolecnyDelitelEukliduvAlgoritmus(int a, int b) {
-        while(a != b) {
+        while (a != b) {
             if (a < b)
                 b -= a;
             else
@@ -524,7 +522,7 @@ public class Kompozice_2E_2021 {
      */
     public static int indexOfArrSimpleWhileLoop(int[] arr, int hledaneCislo) {
         int i = 0;
-        while(i < arr.length && arr[i] != hledaneCislo) i++;
+        while (i < arr.length && arr[i] != hledaneCislo) i++;
         return ((i == arr.length) ? -1 : i);
     }
 
@@ -623,7 +621,7 @@ public class Kompozice_2E_2021 {
             }
         }
 
-        return new int[] {min, max};
+        return new int[]{min, max};
     }
 
     /**
@@ -671,7 +669,7 @@ public class Kompozice_2E_2021 {
             }
         }
 
-        return new int[] {max, max2};
+        return new int[]{max, max2};
     }
 
     /**
@@ -778,7 +776,7 @@ public class Kompozice_2E_2021 {
         int[] vysadaPrvku = new int[posun];
 
         int j = 0;
-        for (int i = arr.length - posun;j < vysadaPrvku.length; i++) {
+        for (int i = arr.length - posun; j < vysadaPrvku.length; i++) {
             vysadaPrvku[j] = arr[i];
             j++;
         }
@@ -873,7 +871,7 @@ public class Kompozice_2E_2021 {
             for (int i = 1; i < arr.length; i++) {
                 if (arr[i] < arr[i - 1]) {
                     int vymena = arr[i];
-                    arr[i] = arr[i-1];
+                    arr[i] = arr[i - 1];
                     arr[i - 1] = vymena;
                     nynejsiZmena = true;
                 }
@@ -959,14 +957,20 @@ public class Kompozice_2E_2021 {
     public static int[] getZitra(int den, int mesic, int rok) {
         int[] mesice = {0, 31, (isPrestupny(rok)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        if (den < mesice[mesic]) {
-            return new int[] {den + 1, mesic, rok};
-        } else {
-            if (mesic == 12) {
-                return new int[] {1, 1, rok + 1};
-            } else {
-                return new int[] {1, mesic + 1, rok};
-            }
-        }
+        if (den < mesice[mesic])
+            return new int[]{den + 1, mesic, rok};
+        if (mesic == 12)
+            return new int[]{1, 1, rok + 1};
+        else
+            return new int[]{1, mesic + 1, rok};
     }
+
+    /*
+    VNĚJŠÍ TŘÍDĚNÍ PŘI NEDOSTATKU PAMĚTI
+    Sléváním menších sektorů, schopné se vejít do malé paměti (MERGESORT) setřídíme. O(n * log n)
+    Do pomocného souboru vytvoříme dvojice slova a počtu jeho výskytů v zadaném textu. O(n)
+    Setřídíme tento seznam dvojic podle počtu výskytů. O(n * log n)
+    Následně vypíšeme postupně všechna slova, která jsou tedy nyní seřazena dle jejich výskytů. O(n)
+    ==> výsledná asymptotický složitos je O(n * log n)
+     */
 }
