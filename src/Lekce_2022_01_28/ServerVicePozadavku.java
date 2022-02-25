@@ -31,7 +31,7 @@ public class ServerVicePozadavku extends Thread {
                 }
                 out.println();
             }
-            out.print("</pre></body></html>");
+            out.println("</pre></body></html>");
 
             out.close();
         } catch (IOException | InterruptedException e) {

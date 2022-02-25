@@ -14,6 +14,11 @@ public class Utils {
     }
      */
 
+    public static void main(String[] args) {
+        String s = "domény poštovního serveru v cloudu (např. Office365,";
+        System.out.println(s.length());
+    }
+
     public static String readRequest(Socket socket) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         StringBuilder sb = new StringBuilder();
