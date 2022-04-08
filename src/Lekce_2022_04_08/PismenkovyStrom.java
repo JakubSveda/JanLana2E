@@ -28,13 +28,15 @@ public class PismenkovyStrom {
             }
         }
 
-        private boolean hasPotomek(char ch) {
+        private char[] hasPotomekAndIndex(char ch) {
+            char[] chArr = new char[3];
             for (Potomek p: potomci) {
-                if (p.character == ch)
-                    return true;
+                if (p.character == ch) {
+                    chArr = {}
+                }
             }
 
-            return false;
+            return chArr;
         }
     }
 }
