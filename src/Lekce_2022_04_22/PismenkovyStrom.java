@@ -1,18 +1,38 @@
 package Lekce_2022_04_22;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class PismenkovyStrom {
 
     public static void main(String[] args) {
         Potomek p = new Potomek();
-        System.out.println(p.addWord("xdd") ? "word added" : "add failed");
-        p.toStringAllPotomci();
+        File bible = new File("src/Lekce_2022_04_22/bible.txt");
+        try {
+            Scanner sc = new Scanner(bible);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] lineArr = line.split("[ .\\[\\],‚ ;!-?:„» “/–‘]");
+                for (String str : lineArr) {
+                    p.addWord(str.toLowerCase());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        p.toStringAllPotomci("");
+        System.out.println(p.toStringCurrentSurfaceCounter());
+        System.out.println(p.toStringSurface());
     }
 
     public static class Potomek {
         char character;
         int pocetPismen = 0;
+        int pocetSlov = 0;
         ArrayList<Potomek> potomci = new ArrayList<>();
         private int index;
 
@@ -35,19 +55,22 @@ public class PismenkovyStrom {
                     p.pocetPismen++;
                     if (!word.isEmpty())
                         p.addWord(word);
+                    else
+                        p.pocetSlov++;
 
                     potomci.set(index, p);
                 } else {
                     Potomek p = new Potomek(ch, 1);
                     if (!word.isEmpty())
                         p.addWord(word);
+                    else
+                        p.pocetSlov++;
 
                     potomci.add(p);
                 }
                 return true;
-            } else {
+            } else
                 return false;
-            }
         }
 
         private boolean containsPotomek(char ch) {
@@ -65,17 +88,34 @@ public class PismenkovyStrom {
         @Override
         public String toString() {
             return "Potomek{" +
-                    "character=" + character +
-                    ", pocetSlov=" + pocetPismen +
+                    "char=" + character +
+                    ", charNumber=" + pocetPismen +
                     '}';
         }
 
-        public void toStringAllPotomci() {
-            if (!potomci.isEmpty()) {
-                for (Potomek p : potomci) {
-                    System.out.println(p);
-                }
+        public void toStringAllPotomci(String before) {
+            String newBefore = before + "\t";
+            for (Potomek p : potomci) {
+                System.out.println(before + p);
+                p.toStringAllPotomci(newBefore);
             }
+        }
+
+        public int toStringCurrentSurfaceCounter() {
+            return potomci.size();
+        }
+
+        public String toStringSurface() {
+            StringBuilder str = new StringBuilder();
+            for (Potomek p: potomci) {
+                str.append(p.character);
+            }
+            return str.toString();
+        }
+
+        public int getWordCounter() {
+
+            return -1;
         }
     }
 }
