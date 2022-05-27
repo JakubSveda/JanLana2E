@@ -1,7 +1,6 @@
 package Lekce_2022_05_20;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Halda {
     private ArrayList<Integer> halda = new ArrayList<>();
@@ -26,7 +25,7 @@ public class Halda {
 
     private void switchUntilCorrect(int a, int b) {
         if (halda.get(a) < halda.get(b)) {
-
+            
         }
     }
 
