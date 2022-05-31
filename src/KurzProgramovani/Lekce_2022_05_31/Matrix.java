@@ -61,7 +61,12 @@ public class Matrix {
         if (this.getColumns() != m.getRows()) {
             throw new IllegalArgumentException();
         }
-        Matrix r = new Matrix(this.getRows(), m.getColumns())
+        Matrix r = new Matrix(this.getRows(), m.getColumns());
+        for (int row = 0; row < r.getRows(); row++) {
+            for (int col = 0; col < r.getColumns(); col++) {
+                r.m[row][col] += this.m[]
+            }
+        }
     }
 
     @Override
