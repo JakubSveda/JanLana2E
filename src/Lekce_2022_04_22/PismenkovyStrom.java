@@ -15,7 +15,7 @@ public class PismenkovyStrom {
             Scanner sc = new Scanner(bible);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                String[] lineArr = line.split("[ .\\[\\],‚ ;!-?:„» “/–‘]");
+                String[] lineArr = line.split("[ . \\[\\],‚ ;!-?:„» “/–‘]");
                 for (String str : lineArr) {
                     p.addWord(str.toLowerCase());
                 }

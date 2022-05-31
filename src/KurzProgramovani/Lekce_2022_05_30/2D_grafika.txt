@@ -1,0 +1,17 @@
+SOUBOJE ROBOTÚ
+- vytlačovaná
+- originalita pohybu
+- rychlost
+- překážková dráha
+- freestyle
+
+2D GRAFIKA
+- lambda = c/f
+- RGB -> kombinace barev red, green, blue
+    - hlavní využití v displayích
+
+- CMY model -> skládání barev po dopadu bílého světla
+    - použití v tiskárnách
+
+- lidské oko citlivější na zelenou barvu
+- RGBA -> RGB + A ==> alfa kanál vyjadřující průhlednost (průsvitnost)
