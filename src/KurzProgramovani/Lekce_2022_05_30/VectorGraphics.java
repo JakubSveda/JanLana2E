@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 public class VectorGraphics extends Application {
     private static ArrayList<Vector> vectors = new ArrayList<>();
@@ -25,6 +24,8 @@ public class VectorGraphics extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("VectorGraphics");
         primaryStage.setFullScreen(true);
+        Pane root = new Pane();
+
         double currentWidth = Screen.getPrimary().getBounds().getWidth();
         double currentHeight = Screen.getPrimary().getBounds().getHeight();
         Line x = new Line(0, currentHeight / 2, currentWidth, currentHeight / 2);
@@ -32,26 +33,23 @@ public class VectorGraphics extends Application {
         Line y = new Line(currentWidth / 2, 0, currentWidth / 2, currentHeight);
         y.setStroke(Color.BLACK);
 
-        //line.setStroke(Color.RED);
-        Pane root = new Pane();
-
         for (int i = 0; i < currentWidth / 2; i+=SCALE) {
-            VectorLine l = new VectorLine(i, currentHeight/2, i, -currentHeight / 2);
+            VectorLine l = new VectorLine(i, currentHeight/2, i, -currentHeight / 2, true);
             l.setStroke(Color.LIGHTGRAY);
             root.getChildren().add(l);
         }
         for (int i = 0; i >= -currentWidth / 2; i-=SCALE) {
-            VectorLine l = new VectorLine(i, currentHeight/2, i, -currentHeight / 2);
+            VectorLine l = new VectorLine(i, currentHeight/2, i, -currentHeight / 2, true);
             l.setStroke(Color.LIGHTGRAY);
             root.getChildren().add(l);
         }
         for (int i = 0; i <= currentHeight / 2; i+=SCALE) {
-            VectorLine l = new VectorLine(-currentWidth / 2, i, currentWidth / 2, i);
+            VectorLine l = new VectorLine(-currentWidth / 2, i, currentWidth / 2, i, true);
             l.setStroke(Color.LIGHTGRAY);
             root.getChildren().add(l);
         }
         for (int i = 0; i >= -currentHeight / 2; i-=SCALE) {
-            VectorLine l = new VectorLine(-currentWidth / 2, i, currentWidth / 2, i);
+            VectorLine l = new VectorLine(-currentWidth / 2, i, currentWidth / 2, i, true);
             l.setStroke(Color.LIGHTGRAY);
             root.getChildren().add(l);
         }
@@ -65,6 +63,18 @@ public class VectorGraphics extends Application {
             }
         }
 
+        ArrayList<VectorLine> HOUSE = createHouse(Color.DARKBLUE);
+        for (VectorLine vectorLine: HOUSE) {
+            root.getChildren().add(vectorLine);
+            System.out.println("House");
+        }
+
+        Vector moveVector = new Vector(-4, -6);
+        //HOUSE = moveByVector(moveVector, HOUSE.toArray());
+        for (VectorLine vectorLine: HOUSE) {
+
+        }
+
         primaryStage.setScene(new Scene(root, 500, 400));
         primaryStage.show();
     }
@@ -74,13 +84,36 @@ public class VectorGraphics extends Application {
     }
 
     private static VectorLine createVectorLine(Vector vector, Color color) {
-        VectorLine line = new VectorLine(0, 0, vector.getX() * SCALE, vector.getY() * SCALE);
-        line.setStroke(color);
-        return line;
+        return new VectorLine(0, 0, vector.getX(), vector.getY(), color);
     }
 
-    /*
-    private static ArrayList<Vector> =
-     */
+    private static ArrayList<VectorLine> createHouse(Color houseColor) {
+        ArrayList<VectorLine> houseLines = new ArrayList<>();
+
+        houseLines.add(new VectorLine(1, 1, 3, 1, houseColor));
+        houseLines.add(new VectorLine(1, 1, 1, 3, houseColor));
+        houseLines.add(new VectorLine(1, 3, 3, 3, houseColor));
+        houseLines.add(new VectorLine(1, 3, 2, 4, houseColor));
+        houseLines.add(new VectorLine(2, 4, 3, 3, houseColor));
+        houseLines.add(new VectorLine(3, 3, 3, 1, houseColor));
+
+        return houseLines;
+    }
+
+    private static ArrayList<VectorLine> moveByVector(Vector moveVector, VectorLine... vectorLinesToMove) {
+        ArrayList<VectorLine> vectorLineArrayList = new ArrayList<>();
+        double X_MOVE = moveVector.getX();
+        double Y_MOVE = moveVector.getY();
+
+        for (VectorLine v : vectorLinesToMove) {
+            vectorLineArrayList.add(new VectorLine(v.getStartX() + X_MOVE, v.getStartY() + Y_MOVE, v.getEndX() + X_MOVE, v.getEndY() + Y_MOVE));
+        }
+
+        return vectorLineArrayList;
+    }
+
+    public static double getScale() {
+        return SCALE;
+    }
 
 }
