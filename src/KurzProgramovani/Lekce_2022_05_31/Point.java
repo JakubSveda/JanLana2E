@@ -10,6 +10,7 @@ package KurzProgramovani.Lekce_2022_05_31;
  * @author kahoun
  */
 public class Point {
+
     private final double x;
     private final double y;
 
@@ -25,10 +26,14 @@ public class Point {
     public double getY() {
         return y;
     }
-    
+
+    public Point multiply(double k) {
+        return new Point(getX() * k, getY() * k);
+    }
+
     @Override
     public String toString() {
         return "[" + getX() + "; " + getY() + "]";
     }
-    
+
 }

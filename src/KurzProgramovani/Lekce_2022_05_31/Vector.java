@@ -54,12 +54,19 @@ public class Vector extends Point {
         return new Vector(getX() * k, getY() * k);
     }
 
+    public static Point[] multiply(Point[] v, double k) {
+        Point[] w = new Point[v.length];
+        for (int i = 0; i < v.length; i++) {
+            w[i] = v[i].multiply(k);
+        }
+        return w;
+    }
+
     public static Vector[] multiply(Vector[] v, double k) {
         Vector[] w = new Vector[v.length];
         for (int i = 0; i < v.length; i++) {
             w[i] = v[i].multiply(k);
         }
-
         return w;
     }
 

@@ -26,8 +26,8 @@ public class Paintings extends Application {
     public static final double SCALE = 50;                       // pixel/unit
     public static final double WIDTH = (MAX_X - MIN_X) * SCALE;  // pixel
     public static final double HEIGHT = (MAX_Y - MIN_Y) * SCALE; // pixel
-    public static final double ORIGIN_X = WIDTH / 2;              // pixel
-    public static final double ORIGIN_Y = HEIGHT / 2;             // pixel
+    public static final double ORIGIN_X = WIDTH / 2;             // pixel
+    public static final double ORIGIN_Y = HEIGHT / 2;            // pixel
     private static final Point[] HOUSE = {
         new Point(1, 3),
         new Point(1, 1),
@@ -98,9 +98,15 @@ public class Paintings extends Application {
         renderPolyline(HOUSE);
         
         Vector u = new Vector(-4, -6);
-        //Point[] house2 = Vector.multiply(HOUSE, 2);
+//        Point[] house2 = u.move(HOUSE);
+//        Point[] house2 = Vector.multiply(HOUSE, 2);
         gc.setStroke(Color.BLUE);
-        //renderPolyline(house2);
+        Matrix m1 = Matrix.translate(u);
+        Matrix m2 = Matrix.scale(0.5, 0.5);
+        Matrix m3 = Matrix.rotation(Math.PI / 4);
+        Matrix m = m1.multiply(m2).multiply(m3);
+        renderPolyline(Matrix.rotation(u, Math.PI / 4).transform(HOUSE));
+        System.out.println(m);
     }
 
     /**
