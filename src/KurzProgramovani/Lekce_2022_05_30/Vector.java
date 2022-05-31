@@ -16,14 +16,14 @@ public class Vector {
         System.out.println(w);
         w = u.axialSymmetryByX();
         System.out.println(w);
-        u.setC(Color.RED);
-        v.setC(Color.BLUE);
-        w.setC(Color.GREEN);
+        u.setColor(Color.RED);
+        v.setColor(Color.BLUE);
+        w.setColor(Color.GREEN);
         Vector.displayVector(u, v, w);
     }
 
     private final double x, y;
-    private Color c;
+    private Color color;
 
     public Vector(double x, double y) {
         this.x = x;
@@ -38,12 +38,12 @@ public class Vector {
         return y;
     }
 
-    public Color getC() {
-        return c;
+    public Color getColor() {
+        return color;
     }
 
-    public void setC(Color c) {
-        this.c = c;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public Vector move(Vector vector) {

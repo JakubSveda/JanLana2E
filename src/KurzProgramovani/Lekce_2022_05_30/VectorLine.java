@@ -8,8 +8,6 @@ public class VectorLine extends Line {
         double widthMove = Screen.getPrimary().getBounds().getWidth() / 2;
         double heightMove = Screen.getPrimary().getBounds().getHeight() / 2;
 
-        endY = -endY;
-
         System.out.println("width move" + widthMove);
         System.out.println("height move" + heightMove);
         setStartX(startX + widthMove);
