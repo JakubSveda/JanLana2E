@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Paintings extends Application {
@@ -35,6 +36,7 @@ public class Paintings extends Application {
         Scene sc = new Scene(root);
         primaryStage.setTitle("Vectors");
         primaryStage.setScene(sc);
+        primaryStage.show();
 
         renderAxis();
     }
@@ -42,5 +44,19 @@ public class Paintings extends Application {
     public void renderAxis() {
         gc.strokeLine(ORIGIN_X, 0, ORIGIN_X, HEIGHT);
         gc.strokeLine(0, ORIGIN_Y, WIDTH, ORIGIN_Y);
+        gc.strokeLine(ORIGIN_X + SCALE, 0, ORIGIN_X + SCALE, HEIGHT);
+        gc.setStroke(Color.LIGHTGREY);
+        for (int i = 1; i <= MAX_X; i++) {
+            gc.strokeLine(ORIGIN_X + i * SCALE, 0, ORIGIN_X + i * SCALE, HEIGHT);
+        }
+        for (int i = -1; i >= MIN_X ; i--) {
+            gc.strokeLine(ORIGIN_X + i * SCALE, 0, ORIGIN_X + i * SCALE, HEIGHT);
+        }
+        for (int i = 1; i <= MAX_Y; i++) {
+            gc.strokeLine(0, ORIGIN_Y + i * SCALE, WIDTH, ORIGIN_Y + i * SCALE);
+        }
+        for (int i = -1; i >= MIN_Y ; i--) {
+            gc.strokeLine(0, ORIGIN_Y + i * SCALE, WIDTH, ORIGIN_Y + i * SCALE);
+        }
     }
 }
