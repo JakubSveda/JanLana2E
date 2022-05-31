@@ -16,8 +16,8 @@ public class Paintings extends Application {
     private static final double SCALE = 30;
     private static final double WIDTH = (MAX_X - MIN_X) * SCALE;
     private static final double HEIGHT = (MAX_Y - MIN_Y) * SCALE;
-    private static final double ORIGIN_X = 30;
-    private static final double ORIGIN_Y = 30;
+    private static final double ORIGIN_X = WIDTH / 2;
+    private static final double ORIGIN_Y = HEIGHT / 2;
 
 
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class Paintings extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Canvas canvas = new Canvas(300, 200);
+        Canvas canvas = new Canvas(WIDTH, HEIGHT);
 
         gc = canvas.getGraphicsContext2D();
         StackPane root = new StackPane();
