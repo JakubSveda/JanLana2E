@@ -1,5 +1,7 @@
 package KurzProgramovani.Lekce_2022_05_30;
 
+import javafx.scene.paint.Color;
+
 public class Vector {
     public static void main(String[] args) {
         Vector u = new Vector(3, 6);
@@ -14,10 +16,14 @@ public class Vector {
         System.out.println(w);
         w = u.axialSymmetryByX();
         System.out.println(w);
+        u.setC(Color.RED);
+        v.setC(Color.BLUE);
+        w.setC(Color.GREEN);
         Vector.displayVector(u, v, w);
     }
 
     private final double x, y;
+    private Color c;
 
     public Vector(double x, double y) {
         this.x = x;
@@ -30,6 +36,14 @@ public class Vector {
 
     public double getY() {
         return y;
+    }
+
+    public Color getC() {
+        return c;
+    }
+
+    public void setC(Color c) {
+        this.c = c;
     }
 
     public Vector move(Vector vector) {

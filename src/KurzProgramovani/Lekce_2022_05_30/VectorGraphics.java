@@ -37,7 +37,7 @@ public class VectorGraphics extends Application {
                 Vector u = v.multiply(20);
                 VectorLine line = new VectorLine(0, 0, u.getX(), u.getY());
                 Random rand = new Random();
-                line.setStroke(Color.BLUE);
+                line.setStroke(v.getC());
                 root.getChildren().add(line);
             }
         }
