@@ -9,6 +9,16 @@ import javafx.stage.Stage;
 
 public class Paintings extends Application {
     private GraphicsContext gc;
+    private static final double MIN_X = -6;
+    private static final double MIN_Y = 6;
+    private static final double MAX_X = -6;
+    private static final double MAX_Y = -6;
+    private static final double SCALE = 30;
+    private static final double WIDTH = (MAX_X - MIN_X) * SCALE;
+    private static final double HEIGHT = (MAX_Y - MIN_Y) * SCALE;
+    private static final double ORIGIN_X = 30;
+    private static final double ORIGIN_Y = 30;
+
 
     public static void main(String[] args) {
         launch(args);
