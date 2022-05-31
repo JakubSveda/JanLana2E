@@ -66,11 +66,11 @@ public class Matrix {
     }
     private final double[][] m;
     private final int rows;
-    private final int cols;
+    private final int columns;
 
     public Matrix(int rows, int cols, double... values) {
         this.rows = rows;
-        this.cols = cols;
+        this.columns = cols;
         m = new double[rows][cols];
         int i = -1;
         for (int row = 0; row < rows; row++) {
@@ -84,13 +84,13 @@ public class Matrix {
 
     public Matrix multiply(Matrix m) {
         // this x m
-        if (this.getCols() != m.getRows()) {
+        if (this.getColumns() != m.getRows()) {
             throw new IllegalArgumentException();
         }
-        Matrix r = new Matrix(this.getRows(), m.getCols());
+        Matrix r = new Matrix(this.getRows(), m.getColumns());
         for (int row = 0; row < r.getRows(); row++) {
-            for (int col = 0; col < r.getCols(); col++) {
-                for (int i = 0; i < this.getCols(); i++) {
+            for (int col = 0; col < r.getColumns(); col++) {
+                for (int i = 0; i < this.getColumns(); i++) {
                     r.m[row][col] += this.m[row][i] * m.m[i][col];
                 }
             }
@@ -99,14 +99,14 @@ public class Matrix {
     }
 
     public Point toPoint() {
-        if ((cols != 1) || (rows != 3)) {
+        if ((columns != 1) || (rows != 3)) {
             throw new IllegalArgumentException();
         }
         return new Point(m[0][0], m[1][0]);
     }
 
     public Vector toVector() {
-        if ((cols != 1) || (rows != 3)) {
+        if ((columns != 1) || (rows != 3)) {
             throw new IllegalArgumentException();
         }
         return new Vector(m[0][0], m[1][0]);
@@ -132,8 +132,8 @@ public class Matrix {
         return rows;
     }
 
-    public int getCols() {
-        return cols;
+    public int getColumns() {
+        return columns;
     }
 
     @Override
@@ -141,7 +141,7 @@ public class Matrix {
         StringBuilder sb = new StringBuilder();
         for (int row = 0; row < rows; row++) {
             sb.append('(');
-            for (int col = 0; col < cols; col++) {
+            for (int col = 0; col < columns; col++) {
                 sb.append(m[row][col]);
                 sb.append(' ');
             }

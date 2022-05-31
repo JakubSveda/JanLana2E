@@ -15,3 +15,11 @@ SOUBOJE ROBOTÚ
 
 - lidské oko citlivější na zelenou barvu
 - RGBA -> RGB + A ==> alfa kanál vyjadřující průhlednost (průsvitnost)
+
+- antialiasing - malé prosvícení (alfa kanál) krajních bodů obrazce
+
+2D ANIMACE
+- posun po vektoru
+
+3D OPEN GL
+- knihovna pro zobrazení 3D objektů
