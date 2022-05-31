@@ -36,5 +36,11 @@ public class Paintings extends Application {
         primaryStage.setTitle("Vectors");
         primaryStage.setScene(sc);
 
+        renderAxis();
+    }
+
+    public void renderAxis() {
+        gc.strokeLine(ORIGIN_X, 0, ORIGIN_X, HEIGHT);
+        gc.strokeLine(0, ORIGIN_Y, WIDTH, ORIGIN_Y);
     }
 }
