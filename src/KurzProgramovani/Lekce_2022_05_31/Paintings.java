@@ -102,11 +102,14 @@ public class Paintings extends Application {
 //        Point[] house2 = Vector.multiply(HOUSE, 2);
         gc.setStroke(Color.BLUE);
         Matrix m1 = Matrix.translate(u);
-        Matrix m2 = Matrix.scale(0.5, 0.5);
+        Matrix m2 = Matrix.scale(0.2, 0.2);
         Matrix m3 = Matrix.rotation(Math.PI / 4);
         Matrix m = m1.multiply(m2).multiply(m3);
-        renderPolyline(Matrix.rotation(u, Math.PI / 4).transform(HOUSE));
-        System.out.println(m);
+        renderPolyline(m1.transform(HOUSE));
+        renderPolyline(m2.transform(HOUSE));
+        renderPolyline(m3.transform(HOUSE));
+        //renderPolyline(Matrix.rotation(u, Math.PI / 4).transform(HOUSE));
+        //System.out.println(m);
     }
 
     /**
