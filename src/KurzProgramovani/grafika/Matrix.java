@@ -82,6 +82,7 @@ public class Matrix {
     }
 
     public static Matrix rotation(double rad) {
+        rad = -rad;
         Matrix m = Matrix.identity(3);
 
         m.data[0][0] = m.data[1][1] = Math.cos(rad);

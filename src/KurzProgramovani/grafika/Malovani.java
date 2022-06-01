@@ -11,7 +11,14 @@ public class Malovani extends Gyarab2D {
         }
 
 
-        Matrix transformace = Matrix.rotation(Math.PI/6);
+        Matrix posun1 = Matrix.transposition(-50, -50);
+        Matrix otoceni = Matrix.rotation(Math.PI / 6);
+        Matrix posun2 = Matrix.transposition(50, 50);
+
+        Matrix transformace = posun1.times(otoceni).times(posun2);
+
+
+        Matrix rotace = Matrix.rotation(Math.PI/6);
         Matrix bod = new Matrix(3, 1);
 
         for (int i = 0; i < maxXY; i++) {
