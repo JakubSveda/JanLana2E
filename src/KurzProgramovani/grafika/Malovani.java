@@ -10,12 +10,17 @@ public class Malovani extends Gyarab2D {
             namalujBod(0, i);
         }
 
-        Matrix rotace = Matrix.rotation(Math.PI/6);
-        Matrix bod = new Matrix(1, 3);
+
+        Matrix transformace = Matrix.rotation(Math.PI/6);
+        Matrix bod = new Matrix(3, 1);
 
         for (int i = 0; i < maxXY; i++) {
-            bod.setPointInMatrix(i, 0);
-            namalujBod(i, 0);
+            bod.setPointInMatrix(i, 50);
+
+            Matrix m = transformace.times(bod);
+            int x = (int) m.get(0, 0);
+            int y = (int) m.get(1, 0);
+            namalujBod(x, y);
         }
         return false;
     }

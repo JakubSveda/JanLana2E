@@ -39,8 +39,8 @@ public class Matrix {
 
     public void setPointInMatrix(int x, int y) {
         this.set(0, 0, x);
-        this.set(0, 1, y);
-        this.set(0, 2, 1);
+        this.set(1, 0, y);
+        this.set(2, 0, 1);
     }
 
     // create matrix based on 2d array
