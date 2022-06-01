@@ -108,6 +108,7 @@ public class Paintings extends Application {
         renderPolyline(m1.transform(HOUSE));
         renderPolyline(m2.transform(HOUSE));
         renderPolyline(m3.transform(HOUSE));
+        renderPolyline(m.transform(HOUSE));
         //renderPolyline(Matrix.rotation(u, Math.PI / 4).transform(HOUSE));
         //System.out.println(m);
     }

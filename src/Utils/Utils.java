@@ -31,4 +31,34 @@ public class Utils {
         }
         return sb.toString();
     }
+
+    public static double min(double...min) {
+        double minimum = min[0];
+        for (double number: min) {
+            if (number < minimum)
+                minimum = number;
+        }
+
+        return minimum;
+    }
+
+    public static int min(int...min) {
+        int minimum = min[0];
+        for (int number: min) {
+            if (number < minimum)
+                minimum = number;
+        }
+
+        return minimum;
+    }
+
+    public static byte min(byte...min) {
+        byte minimum = min[0];
+        for (byte number: min) {
+            if (number < minimum)
+                minimum = number;
+        }
+
+        return minimum;
+    }
 }
