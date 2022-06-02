@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.PixelWriter;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -80,6 +81,14 @@ public abstract class Gyarab2D extends Application {
 
     public void namalujBod(Matrix m, int g) {
         namalujBod(m, g, g, g);
+    }
+
+    public void namalujBod(int x, int y, Color color) {
+        namalujBod(x, y, (int) color.getRed(), (int) color.getGreen(), (int) color.getBlue());
+    }
+
+    public void namalujBod(Matrix matrix, Color color) {
+        namalujBod(matrix, (int) color.getRed(), (int) color.getGreen(), (int) color.getBlue());
     }
 
 

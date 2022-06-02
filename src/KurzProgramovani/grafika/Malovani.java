@@ -2,34 +2,47 @@ package KurzProgramovani.grafika;
 
 public class Malovani extends Gyarab2D {
 
-    @Override
-    public boolean maluj(int idx) {
-        // render axis
+    private void renderAxis() {
         for (int i = -maxXY; i < maxXY; i++) {
             namalujBod(i, 0);
             namalujBod(0, i);
         }
+    }
 
 
-        Matrix posun1 = Matrix.transposition(-50, -50);
-        Matrix otoceni = Matrix.rotation(Math.PI / 6);
-        Matrix posun2 = Matrix.transposition(50, 50);
-
-        Matrix transformace = posun1.times(otoceni).times(posun2);
 
 
-        Matrix rotace = Matrix.rotation(Math.PI/6);
+
+
+    @Override
+    public boolean maluj(int idx) {
+        renderAxis();
+
+        Matrix posunDolu = Matrix.transposition(-50, -50);
+        double ANGLE = Math.PI/100;
+        Matrix otoceni = Matrix.rotation(ANGLE);
+        Matrix posunNahoru = Matrix.transposition(50, 50);
+        Matrix transformace = posunNahoru.times(otoceni).times(posunDolu);
+
+        transformLine(transformace, 0, maxXY, 50);
+
+        return false;
+    }
+
+
+
+
+    private void transformLine(Matrix transform, int startX, int endX, int defaultY) {
         Matrix bod = new Matrix(3, 1);
 
-        for (int i = 0; i < maxXY; i++) {
-            bod.setPointInMatrix(i, 50);
+        for (int i = startX; i < endX; i++) {
+            bod.setPointInMatrix(i, defaultY);
 
-            Matrix m = transformace.times(bod);
+            Matrix m = transform.times(bod);
             int x = (int) m.get(0, 0);
             int y = (int) m.get(1, 0);
             namalujBod(x, y);
         }
-        return false;
     }
 
     public static void main(String[] args) {

@@ -43,6 +43,13 @@ public class Matrix {
         this.set(2, 0, 1);
     }
 
+    public void setPointInMatrix(int x, int y, int z) {
+        this.set(0, 0, x);
+        this.set(1, 0, y);
+        this.set(2, 0, z);
+        this.set(3, 0, 1);
+    }
+
     // create matrix based on 2d array
     public Matrix(double[][] data2) {
         m = data2.length;
@@ -94,8 +101,8 @@ public class Matrix {
 
     public static Matrix transposition(double dx, double dy) {
         Matrix m = Matrix.identity(3);
-        m.data[2][0] = dx;
-        m.data[2][1] = dy;
+        m.data[0][2] = dx;
+        m.data[1][2] = dy;
 
         return m;
     }
