@@ -15,7 +15,7 @@ public class AppBox extends Gyarab2D {
     private Matrix rotaceY(double angle) {
         Matrix m = new Matrix(4, 4);
         m.set(0, 0, Math.cos(angle));
-        m.set(0, 3, Math.sin(angle));
+        m.set(0, 2, Math.sin(angle));
         m.set(1, 1, 1);
         m.set(2, 0, -Math.sin(angle));
         m.set(2, 2, Math.cos(angle));
@@ -29,7 +29,7 @@ public class AppBox extends Gyarab2D {
         Matrix m = transform.times(point);
         int finalx = (int) m.get(0, 0);
         int finaly = (int) m.get(1, 0);
-        int finalz = (int) m.get(2, 0);
+        //int finalz = (int) m.get(2, 0);
         namalujBod(finalx, finaly);
     }
 
@@ -38,11 +38,8 @@ public class AppBox extends Gyarab2D {
         renderAxis();
 
         double ANGLE = Math.PI / 100 * idx;
-        Color color = Color.RED;
+        //Color color = Color.RED;
         Matrix bod = new Matrix(4, 1);
-        Matrix bod2 = new Matrix(4, 1);
-        Matrix bod3 = new Matrix(4, 1);
-        Matrix bod4 = new Matrix(4, 1);
 
         Matrix transform = rotaceY(ANGLE);
 
