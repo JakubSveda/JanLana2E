@@ -130,7 +130,6 @@ public abstract class Gyarab2D extends Application {
         new AnimationTimer() {
             long lastUpdate = 0;
             int index = 0;
-            int len = 0;
 
             @Override
             public void handle(long now) {

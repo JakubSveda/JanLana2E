@@ -83,6 +83,7 @@ public class Matrix {
     public static Matrix identity(int n) {
         Matrix ii = new Matrix(n, n);
         for (int i = 0; i < n; i++) {
+            ii.set(i, i, 1);
             ii.data[i][i] = 1;
         }
         return ii;
@@ -97,6 +98,44 @@ public class Matrix {
         m.data[1][0] = -1 * Math.sin(rad);
 
         return m;
+    }
+    public static Matrix rotate3D_X(double angle) {
+        Matrix m = Matrix.identity(4);
+        m.set(1, 1, Math.cos(angle));
+        m.set(1, 2, -Math.sin(angle));
+        m.set(2, 1, Math.sin(angle));
+        m.set(2, 2, Math.cos(angle));
+        return m;
+    }
+
+    public static Matrix rotate3D_Y(double angle) {
+        Matrix m = Matrix.identity(4);
+        m.set(0, 0, Math.cos(angle));
+        m.set(0, 2, Math.sin(angle));
+        m.set(2, 0, -Math.sin(angle));
+        m.set(2, 2, Math.cos(angle));
+        return m;
+    }
+
+    public static Matrix rotate3D_Z(double angle) {
+        Matrix m = Matrix.identity(4);
+        m.set(0, 0, Math.cos(angle));
+        m.set(0, 1, -Math.sin(angle));
+        m.set(1, 0, Math.sin(angle));
+        m.set(1, 1, Math.cos(angle));
+        return m;
+    }
+
+    public static Matrix changeSize3D(double resizeValue_X, double resizeValue_Y, double resizeValue_Z) {
+        Matrix m = Matrix.identity(4);
+        m.set(0, 0, resizeValue_X);
+        m.set(1, 1, resizeValue_Y);
+        m.set(2, 2, resizeValue_Z);
+        return m;
+    }
+
+    public static Matrix changeSize3D(double resizeValue) {
+        return changeSize3D(resizeValue, resizeValue, resizeValue);
     }
 
     public static Matrix transposition(double dx, double dy) {

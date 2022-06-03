@@ -1,8 +1,6 @@
 package KurzProgramovani.grafika;
 
 
-import javafx.scene.paint.Color;
-
 public class AppBox extends Gyarab2D {
 
     private void renderAxis() {
@@ -12,24 +10,14 @@ public class AppBox extends Gyarab2D {
         }
     }
 
-    private Matrix rotaceY(double angle) {
-        Matrix m = new Matrix(4, 4);
-        m.set(0, 0, Math.cos(angle));
-        m.set(0, 2, Math.sin(angle));
-        m.set(1, 1, 1);
-        m.set(2, 0, -Math.sin(angle));
-        m.set(2, 2, Math.cos(angle));
-        m.set(3, 3, 1);
-        return m;
-    }
-
-    private void myPoint(Matrix transform, Matrix point, int x, int y, int z) {
+    private void drawNewPoint(Matrix transform, Matrix point, int x, int y, int z) {
         point.setPointInMatrix(x, y, z);
 
         Matrix m = transform.times(point);
-        int finalx = (int) m.get(0, 0);
-        int finaly = (int) m.get(1, 0);
-        //int finalz = (int) m.get(2, 0);
+        double LAST_MATRIX_NUMBER = m.get(3, 0);
+        int finalx = (int) (m.get(0, 0) / LAST_MATRIX_NUMBER);
+        int finaly = (int) (m.get(1, 0) / LAST_MATRIX_NUMBER);
+        //int finalz = (int) (m.get(2, 0) / LAST_MATRIX_NUMBER);
         namalujBod(finalx, finaly);
     }
 
@@ -38,16 +26,25 @@ public class AppBox extends Gyarab2D {
         renderAxis();
 
         double ANGLE = Math.PI / 100 * idx;
+        double SIZE = 2;
         //Color color = Color.RED;
-        Matrix bod = new Matrix(4, 1);
+        Matrix point = new Matrix(4, 1);
 
-        Matrix transform = rotaceY(ANGLE);
+        Matrix rotation_x = Matrix.rotate3D_X(ANGLE);
+        Matrix rotation_y = Matrix.rotate3D_Y(ANGLE);
+        Matrix rotation_z = Matrix.rotate3D_Z(ANGLE);
 
-        for (int i = 25; i <= 75; i++) {
-            myPoint(transform, bod, 25, i, 0);
-            myPoint(transform, bod, i, 25, 0);
-            myPoint(transform, bod, 75, i, 0);
-            myPoint(transform, bod, i, 75, 0);
+        Matrix resize = Matrix.changeSize3D(SIZE);
+
+        Matrix transform = resize.times(rotation_z);
+
+        int START_X = 25;
+        int END_X = 75;
+        for (int i = START_X; i <= END_X; i++) {
+            drawNewPoint(transform, point, START_X, i, 0);
+            drawNewPoint(transform, point, i, START_X, 0);
+            drawNewPoint(transform, point, END_X, i, 0);
+            drawNewPoint(transform, point, i, END_X, 0);
         }
 
         return true;
