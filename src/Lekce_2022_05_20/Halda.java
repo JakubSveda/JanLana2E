@@ -9,23 +9,18 @@ public class Halda {
     }
 
     public void add(int number) {
-        if (halda.get(0) == null) {
-            halda.set(0, number);
+        if (halda.isEmpty()) {
+            halda.add(number);
             return;
         }
 
+        halda.add(number);
         int myIdx = halda.size() - 1;
         int parentIdx = (myIdx - 1) / 2;
-        if (halda.get(myIdx) < halda.get(parentIdx)) {
+        while (halda.get(myIdx) > halda.get(parentIdx)) {
             switchNumbersByIndex(myIdx, parentIdx);
-        } else {
-            return;
-        }
-    }
-
-    private void switchUntilCorrect(int a, int b) {
-        if (halda.get(a) < halda.get(b)) {
-            
+            myIdx = parentIdx;
+            parentIdx = (myIdx - 1) / 2;
         }
     }
 
@@ -35,7 +30,7 @@ public class Halda {
         halda.set(b, change);
     }
 
-    public int getMin() {
+    public int getFirst() {
         return halda.get(0);
     }
 
@@ -43,7 +38,7 @@ public class Halda {
 
     }
 
-    public void removeIndex(int number) {
+    public void removeIndex(int index) {
 
     }
 
@@ -55,6 +50,11 @@ public class Halda {
     public static void main(String[] args) {
         Halda heap = new Halda();
         heap.add(12);
+        heap.add(2);
+        heap.add(4);
+        heap.add(1);
+        heap.add(6);
+        heap.add(3);
         System.out.println(heap);
     }
 }
