@@ -66,13 +66,14 @@ public class VectorGraphics extends Application {
         ArrayList<VectorLine> HOUSE = createHouse(Color.DARKBLUE);
         for (VectorLine vectorLine: HOUSE) {
             root.getChildren().add(vectorLine);
-            System.out.println("House");
+            System.out.println("House: [" + vectorLine.getStartX() + "; " + vectorLine.getStartY() + "], [" + vectorLine.getEndX() + "; " + vectorLine.getEndY() + "]");
         }
 
         Vector moveVector = new Vector(-4, -6);
-        //HOUSE = moveByVector(moveVector, HOUSE.toArray());
+        HOUSE = moveByVector(moveVector, HOUSE.toArray(new VectorLine[HOUSE.size()]));
         for (VectorLine vectorLine: HOUSE) {
-
+            root.getChildren().add(vectorLine);
+            System.out.println("House: [" + vectorLine.getStartX() + "; " + vectorLine.getStartY() + "], [" + vectorLine.getEndX() + "; " + vectorLine.getEndY() + "]");
         }
 
         primaryStage.setScene(new Scene(root, 500, 400));

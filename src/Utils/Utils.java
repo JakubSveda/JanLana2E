@@ -61,4 +61,16 @@ public class Utils {
 
         return minimum;
     }
+
+    /*
+    public static <T extends Number & Comparable<? super Number>> T min(T...min) {
+        T minimum = min[0];
+        for (T number: min) {
+            if (number.compareTo(minimum) >= 0)
+                minimum = number;
+        }
+
+        return minimum;
+    }
+     */
 }

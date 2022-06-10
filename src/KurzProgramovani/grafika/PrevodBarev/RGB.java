@@ -27,7 +27,7 @@ public class RGB {
         byte c = (byte) (255 - this.getR());
         byte m = (byte) (255 - this.getG());
         byte y = (byte) (255 - this.getB());
-        byte k = Utils.min(c, m, y);
+        byte k = (byte) Utils.min(c, m, y);
         c -= k;
         m -= k;
         y -= k;

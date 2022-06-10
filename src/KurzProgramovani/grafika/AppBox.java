@@ -26,7 +26,7 @@ public class AppBox extends Gyarab2D {
         renderAxis();
 
         double ANGLE = Math.PI / 100 * idx;
-        double SIZE = 2;
+        double SIZE = 0.5;
         //Color color = Color.RED;
         Matrix point = new Matrix(4, 1);
 
@@ -36,7 +36,7 @@ public class AppBox extends Gyarab2D {
 
         Matrix resize = Matrix.changeSize3D(SIZE);
 
-        Matrix transform = resize.times(rotation_z);
+        Matrix transform = resize.times(rotation_y).times(rotation_x).times(rotation_z);
 
         int START_X = 25;
         int END_X = 75;
