@@ -7,7 +7,6 @@ public class HeapSort {
 
     public HeapSort(int[] halda) {
         this.heap = halda;
-        //resetHeapLength();
         createHeap();
     }
 
@@ -60,10 +59,6 @@ public class HeapSort {
 
     public void removeNumber(int index) {
         // TODO
-    }
-
-    public void resetHeapLength() {
-        //this.heapLength = this.heap.length - 1;
     }
 
     @Override
