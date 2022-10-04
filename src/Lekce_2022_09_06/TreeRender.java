@@ -33,17 +33,6 @@ public class TreeRender {
         }
 
         StringBuilder stonek = new StringBuilder();
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < base/2; j++) {
-                if (j == base/2)
-                    stonek.append("*");
-                else
-                    stonek.append(" ");
-            }
-
-            if (2 != i + 1)
-                stonek.append("\n");
-        }
 
         for (int i = 0; i < amount; i++) {
             System.out.println(tree);
