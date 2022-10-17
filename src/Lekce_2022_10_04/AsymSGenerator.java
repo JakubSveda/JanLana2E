@@ -15,11 +15,10 @@ public class AsymSGenerator {
             PublicKey publicKey = keyPair.getPublic();
             PrivateKey privateKey = keyPair.getPrivate();
 
-            Files.write(Paths.get("mujVerejny.key"), publicKey.getEncoded());
-            Files.write(Paths.get("mujSoukromy.key"), privateKey.getEncoded());
+            Files.write(Paths.get("public.key"), publicKey.getEncoded());
+            Files.write(Paths.get("private.key"), privateKey.getEncoded());
         } catch (IOException | NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
