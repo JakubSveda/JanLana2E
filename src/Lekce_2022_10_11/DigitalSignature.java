@@ -8,6 +8,7 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Arrays;
+import java.util.Base64;
 
 public class DigitalSignature {
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, InvalidKeyException, SignatureException {
@@ -22,7 +23,6 @@ public class DigitalSignature {
         signGen.update(message.getBytes());
         byte[] sign = signGen.sign();
 
-        System.out.println(message);
-        System.out.println(Arrays.toString(sign));
+        System.out.println(Base64.getEncoder().encodeToString(sign));
     }
 }
