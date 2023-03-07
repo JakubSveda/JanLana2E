@@ -16,10 +16,10 @@ public class Utils {
         }
     }
      */
-    private static String generateString() {
+    private static String generateString(long charSum) {
         StringBuilder str = new StringBuilder();
 
-        for (long i = 0; i < 1000000; i++) {
+        for (long i = 0; i < charSum; i++) {
             str.append("7");
         }
 
@@ -43,7 +43,7 @@ public class Utils {
     }
 
     public static void main(String[] args) {
-        System.out.print(countCharacters("[1,1,1,1,1,1,1,1,{\"id\":\"8.1\",\"description\":\"ano\",\"price\":\"250\"},1,1,1,0,1,1,1,[1,1],[1,1],[0,10000000000000],{\"id\":\"19.1\",\"description\":\"při příští plánované návštěvě\",\"price\":\"2000\"}]"));
+        System.out.println(generateString(100_000_000));
     }
 
     public static String readRequest(Socket socket) throws IOException {
