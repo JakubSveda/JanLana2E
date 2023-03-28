@@ -3,7 +3,8 @@ package Lekce_2023_03_28;
 import java.util.Iterator;
 
 public class MujRetezec implements Iterable<Character> {
-    String str;
+
+    private String str;
 
     public MujRetezec(String str) {
         this.str = str;
@@ -15,10 +16,10 @@ public class MujRetezec implements Iterable<Character> {
     }
 
     public static void main(String[] args) {
-        MujRetezec mr = new MujRetezec("Ahoj");
+        MujRetezec mr = new MujRetezec("MujRetezec");
 
-        for (char s : mr) {
-            System.out.println(s);
+        for (char c: mr) {
+            System.out.println(c);
         }
     }
 }

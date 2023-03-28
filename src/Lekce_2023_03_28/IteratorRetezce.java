@@ -4,11 +4,11 @@ import java.util.Iterator;
 
 public class IteratorRetezce implements Iterator<Character> {
 
-    char[] charArr;
     int count = 0;
+    char[] charArr;
 
-    public IteratorRetezce(String s) {
-        this.charArr = s.toCharArray();
+    public IteratorRetezce(String str) {
+        charArr = str.toCharArray();
     }
 
     @Override
