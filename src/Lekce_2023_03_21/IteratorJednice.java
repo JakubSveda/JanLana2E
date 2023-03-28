@@ -2,7 +2,7 @@ package Lekce_2023_03_21;
 
 import java.util.Iterator;
 
-public class IteratorJednice<T> implements Iterator {
+public class IteratorJednice<T> implements Iterator<T> {
 
     Jednice<T> jednice;
 

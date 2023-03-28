@@ -2,7 +2,7 @@ package Lekce_2023_03_21;
 
 import java.util.Iterator;
 
-public class IteratorTrojice<T> implements Iterator {
+public class IteratorTrojice<T> implements Iterator<T> {
     Trojice<T> data;
     int k;
 
