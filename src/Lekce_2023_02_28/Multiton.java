@@ -1,7 +1,5 @@
 package Lekce_2023_02_28;
 
-import Lekce_2023_02_21.Jedinacek;
-
 import java.util.HashMap;
 
 public class Multiton {

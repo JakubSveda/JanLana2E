@@ -1,8 +1,8 @@
 package Lekce_2023_03_07;
 
 public class KomplexniCislo {
-    private double real;
-    private double imaginary;
+    private final double real;
+    private final double imaginary;
 
     public KomplexniCislo(double real, double imaginary) {
         this.real = real;

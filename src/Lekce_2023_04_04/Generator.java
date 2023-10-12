@@ -1,6 +1,7 @@
 package Lekce_2023_04_04;
 
 import java.util.Iterator;
+import java.util.function.UnaryOperator;
 
 public class Generator implements Iterator<Integer> {
     private final int max;
@@ -10,18 +11,13 @@ public class Generator implements Iterator<Integer> {
         this.max = maxValue;
     }
 
-    private boolean isPrimaryNumber(int a) {
-        if (a % 2 == 0)
-            return (a == 2);
 
-        return loop(a, 3);
+    private boolean isPrimaryNumber(int a) {
+        return (a % 2 == 0) ? (a == 2) : loop(a, 3);
     }
 
     private boolean loop(int a, int b) {
-        if (b * b <= a)
-            return !((a % b != 0) || loop(a, ++b));
-
-        return true;
+        return (b * b <= a) ? !((a % b != 0) || loop(a, ++b)) : true;
     }
 
     @Override

@@ -16,8 +16,8 @@ public class AppMaldebrot extends Gyarab2D {
                 double x = 0, y = 0;
                 int n = 0;
                 while (x * x + y * y <= 4 && n++ < 254) {
-                    double x_new = x * x - y * y + col/50.0;
-                    y = 2 * x * y + row/50.0;
+                    double x_new = x * x - y * y + (col + idx)/(1.0 + idx);
+                    y = 2 * x * y + (row + idx)/(1.0 + idx);
                     x = x_new;
                 }
 
@@ -25,7 +25,7 @@ public class AppMaldebrot extends Gyarab2D {
             }
         }
 
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {

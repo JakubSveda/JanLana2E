@@ -1,12 +1,7 @@
 package Lekce_2023_02_21;
 
 public class Jedinacek {
-    String stav;
-
-    public void setStav(String s) {
-        stav = s;
-    }
-
+    private String stav;
     private static Jedinacek singletonInstance;
     private Jedinacek() {
         stav = "init";
@@ -17,6 +12,10 @@ public class Jedinacek {
             singletonInstance = new Jedinacek();
         }
         return singletonInstance;
+    }
+
+    public void setStav(String s) {
+        stav = s;
     }
 
     @Override

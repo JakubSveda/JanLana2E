@@ -9,13 +9,6 @@ import java.net.URL;
 import java.util.Base64;
 
 public class Utils {
-    /*
-    public static <T> void forEach(<T>[] arr) {
-        for (int i : arr) {
-
-        }
-    }
-     */
     private static String generateString(long charSum) {
         StringBuilder str = new StringBuilder();
 

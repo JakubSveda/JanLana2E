@@ -1,5 +1,11 @@
 package Lekce_2023_03_28;
 
+/**
+ * Class representing a pair of variables with the same type
+ *
+ * @author Jakub Švéda
+ * @param <T>
+ */
 public class Dvojice<T extends Comparable<T>> implements Comparable<Dvojice<T>> {
     T first;
     T second;
