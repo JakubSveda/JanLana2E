@@ -644,7 +644,7 @@ public class Kompozice_2E_2021 {
             if (vstup > max) {
                 max2 = max;
                 max = vstup;
-            } else if (vstup < max2) {
+            } else if (vstup > max2) {
                 max2 = vstup;
             }
         }
